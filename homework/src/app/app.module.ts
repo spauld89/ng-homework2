@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { TemperatureComponent } from './temperature/temperature.component';
 import { SocnetGroupComponent } from './socnet-group/socnet-group.component';
 import { MainListComponent } from './main-list/main-list.component';
+import { HotelFilterPipe } from './hotel-filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     TemperatureComponent,
     SocnetGroupComponent,
-    MainListComponent
+    MainListComponent,
+    HotelFilterPipe
   ],
   imports: [
     BrowserModule,

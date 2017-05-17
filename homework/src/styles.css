@@ -468,3 +468,6 @@ i.text-info{
     font-size: 12px;
   }
 }
+h5{
+  cursor:pointer;
+}
