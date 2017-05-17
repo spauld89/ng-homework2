@@ -1,8 +1,8 @@
-<div class="element-left">
-  <div class="element-bg-img"><img *ngIf="hotels$ | async as hotels" [src]="chosenHotel ? chosenHotel.images[0] : hotels[0].images[0]" alt="" class="img-responsive"> </div>
+<div class="element-left" *ngIf="hotels$ | async as hotels">
+  <div class="element-bg-img"><img [src]="chosenHotel ? chosenHotel.images[0] : hotels[0].images[0]" alt="" class="img-responsive"> </div>
   <div class="element-left-bottom">
     <div class="ele-strip">
-      <ul *ngIf="hotels$ | async as hotels">
+      <ul>
         <li><a href="#" (click)="filterByStars(0, hotels)">All</a></li>
         <li><a href="#" (click)="filterByStars(4, hotels)">4*</a></li>
         <li class="anc-bor"><a href="#" (click)="filterByStars(5, hotels)">5*</a></li>
@@ -12,7 +12,7 @@
       <h3>Hotel list</h3>
       <span class="line"> </span>
       <div class="activity_box">
-        <div class="scrollbar" id="style-2" *ngIf="hotels$ | async as hotels">
+        <div class="scrollbar" id="style-2">
           <div class="activity-row" *ngFor="let hotel of hotels | hotelFilter: stars">
             <div class="activity-desc">
               <h5 (click)="chooseHotel(hotel)">{{hotel.name}}</h5>
