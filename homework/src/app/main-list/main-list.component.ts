@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
-import { hotels$ } from '../data';
-import { Observable } from 'rxjs/Observable';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { data } from '../data';
 
 @Component({
   selector: 'homework-main-list',
@@ -8,24 +7,31 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./main-list.component.css']
 })
 export class MainListComponent {
-  public hotels$: Observable<Hotel[]> = hotels$;
+  @Output()
+  public onChoosingHotel: EventEmitter<Hotel> = new EventEmitter();
+  public hotels = data;
   public stars;
-  public chosenHotel: Hotel;
+  public chosenHotel: Hotel = this.hotels[0];
   public chooseHotel(hotel: Hotel): void{
     this.chosenHotel = hotel;
+    this.onChoosingHotel.emit(hotel);
   }
   public filterByStars(stars: number, hotels: Hotel[]): void{
     if(stars != 0){
       this.stars = stars;
+      let filteredHotels = hotels.filter((hotel: Hotel) => hotel.stars == stars);
+      this.chooseHotel(filteredHotels[0]);
     } else {
       this.stars = null;
+      this.chooseHotel(hotels[0]);
     }
-    let filteredHotels = hotels.filter((hotel: Hotel) => hotel.stars == stars);
-    this.chosenHotel = filteredHotels[0];
   }
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit() {
+    this.onChoosingHotel.emit(this.chosenHotel);
   }
 
 }

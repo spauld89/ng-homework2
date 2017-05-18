@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  public hotel: Hotel;
+  public setChosenHotel(hotel: Hotel): void{
+    this.hotel = hotel;
+  }
 
 }

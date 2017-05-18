@@ -1,7 +1,4 @@
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/delay';
-const data: Hotel[] = [
+export const data: Hotel[] = [
   {
     name: '1913 HOTEL',
     city: 'Санкт-Петербург',
@@ -60,6 +57,3 @@ const data: Hotel[] = [
     ]
   }
 ];
-
-export const hotels$: Observable<Hotel[]> = Observable.of(data)
-  .delay(500);

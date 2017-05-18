@@ -1,9 +1,8 @@
 <h1>Hot Weather Widget</h1>
 <div class="element">
-  <homework-main-list></homework-main-list>
+  <homework-main-list (onChoosingHotel)="setChosenHotel($event)"></homework-main-list>
   <div class="element-right">
-    <homework-temperature></homework-temperature>
-    <homework-socnet-group></homework-socnet-group>
+    <homework-temperature [hotel]="hotel"></homework-temperature>
+    <homework-socnet-group [hotel]="hotel"></homework-socnet-group>
   </div>
-  <!--Here goes left and right -->
 </div>
